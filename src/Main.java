@@ -7,33 +7,38 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int a,b;
         System.out.println("nhap loai mang mong muon \n 1: String \n 2: kieu so");
-        b = scanner.nextInt();
+//        b = scanner.nextInt();
+        b = Integer.parseInt(scanner.nextLine());
         if (b !=1 && b !=2){
             System.out.println("nhap sai kieu");
             return;
         }else {
             System.out.println("nhap vao so phan tu mang arr");
-            a = scanner.nextInt();
+//            a = scanner.nextInt();
+            a= Integer.parseInt(scanner.nextLine());
             Object[] array = new Object[a];
             System.out.println("nhap vao mang");
             for (int i = 0; i < a; i++) {
-                System.out.print("array["+i+"] = ");
                 if (b ==1){
+                    System.out.print("array["+i+"] = ");
                     array[i] = scanner.nextLine();
-                }else {
+
+                }else{
+                    System.out.print("array["+i+"] = ");
                     array[i] = scanner.nextInt();
+
                 }
             }
             System.out.println(Arrays.toString(array));
-            Stack<Integer> stack = new Stack<>();
-            for (int i = 0; i < array.length; i++) {
-                stack.push((Integer) array[i]);
+
+            Stack<Object> stack = new Stack<>();
+            for (int i = 0; i < a; i++) {
+                stack.push( array[i]);
             }
             System.out.println("sau khi push vao stack");
             System.out.println(stack);
             for (int i = 0; i < array.length; i++) {
                 array[i] = stack.pop();
-//            System.out.print(array[i]);
             }
             System.out.println("push lai vao mang array " + Arrays.toString(array));
         }
